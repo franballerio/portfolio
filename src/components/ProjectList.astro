@@ -1,0 +1,10 @@
+---
+const { items } = Astro.props;
+---
+<ul class="project-list">
+  {items.map((item: { href: string; title: string }) => (
+    <li>
+      <a href={item.href}>{item.title}</a>
+    </li>
+  ))}
+</ul>

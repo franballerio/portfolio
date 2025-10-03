@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/DefaultLayout.astro';
+import { filmProjects } from '../../data/projects.js';
+
+export function getStaticPaths() {
+  return filmProjects.map(p => ({
+    params: { slug: p.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const project = filmProjects.find(p => p.slug === slug);
+
+if (!project) {
+  throw new Error(`Project not found: ${slug}`);
+}
+---
+<Layout>
+  <article class="project-detail">
+    <h1>{project.title}</h1>
+    <p>{project.description}</p>
+    <div class="images">
+      {project.images.map(src => (
+        <img src={src} alt={project.title} />
+      ))}
+    </div>
+    <p><a href="/">← Back to home</a></p>
+  </article>
+</Layout>

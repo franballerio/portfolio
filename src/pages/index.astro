@@ -1,16 +1,56 @@
 ---
+import Layout from '../layouts/DefaultLayout.astro';
+import ProjectList from '../components/ProjectList.astro';
+import { designProjects, filmProjects } from '../data/projects.js';
 
+const services = [
+  "Interface design",
+  "Experience design",
+  "Interaction design",
+  "Art direction",
+  "Product strategy",
+  "Concept work",
+  "User research",
+  "Proto branding",
+  "Design leadership",
+  "Filmmaking & editing"
+];
+
+const clients = [
+  "Pinterest","Slack","Logitech","Google Health","Barclays","Leica","MetaLab","Ustwo","Tempest","Count Me In"
+];
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <div id="home">
+    <section class="intro">
+        <h1>Ben Powell</h1>
+        <p>Independent Designer + Filmmaker</p>
+        <p><a href="mailto:projects@bpowell.co">projects@bpowell.co</a></p>
+        <p>Available from September</p>
+      </section>
+  
+      <section id="design" class="projects">
+        <h2>Projects</h2>
+        <ProjectList items={designProjects.map(p => ({ href: `/design/${p.slug}`, title: p.title }))} />
+      </section>
+  
+      <section id="services" class="services">
+        <h2>Services</h2>
+        <ul>
+          {services.map(s => <li>{s}</li>)}
+        </ul>
+      </section>
+  
+      <section id="clients" class="clients">
+        <h2>Selected clients</h2>
+        <ul>
+          {clients.map(c => <li>{c}</li>)}
+        </ul>
+      </section>
+  
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p><a href="mailto:projects@bpowell.co">projects@bpowell.co</a></p>
+    </section>    
+  </div>
+</Layout>

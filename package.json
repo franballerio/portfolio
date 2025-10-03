@@ -1,11 +1,11 @@
 {
-  "name": "wandering-wind",
+  "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "dev": "bun astro dev",
+    "build": "bun astro build",
+    "preview": "bun astro preview",
     "astro": "astro"
   },
   "dependencies": {
