@@ -51,18 +51,17 @@ header nav a:hover {
 
 /* Main content */
 main {
-  max-width: 1400px;
-  margin: 0 auto;
+  /* max-width: 1400px; */
+  margin: 0 2rem;
   padding: 6rem 2rem 4rem;
 }
 
 #home {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-/* Intro section - remove it, just show header */
-.intro {
-  display: block;
-}
+
 
 /* Section titles */
 section h2 {
@@ -80,7 +79,7 @@ section {
 .project-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 3rem;
     flex-wrap: wrap;
     align-content: space-around;
     align-items: flex-start;
@@ -99,8 +98,70 @@ section {
   opacity: 0.6;
 }
 
-/* Services & Clients - hidden in this view */
-.services, .clients, .bio, .contact {
+/* Services - 3 column layout */
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 3rem;
+}
+
+.services h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 1rem;
+}
+
+/* Each h3 starts a new column */
+.services h3:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.services h3:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.services h3:nth-of-type(3) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* Each ul follows its h3 in the same column */
+.services ul:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.services ul:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.services ul:nth-of-type(3) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.services h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.services ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.services li {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Clients & Contact */
+.clients, .bio, .contact {
   display: block;
 }
 
@@ -132,5 +193,11 @@ footer {
   
   main {
     padding: 5rem 1.5rem 3rem;
+  }
+  
+  /* Stack services in single column on mobile */
+  .services {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }

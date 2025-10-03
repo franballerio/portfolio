@@ -3,17 +3,38 @@ import Layout from '../layouts/DefaultLayout.astro';
 import ProjectList from '../components/ProjectList.astro';
 import { designProjects, filmProjects } from '../data/projects.js';
 
-const services = [
-  "Interface design",
-  "Experience design",
-  "Interaction design",
-  "Art direction",
-  "Product strategy",
-  "Concept work",
-  "User research",
-  "Proto branding",
-  "Design leadership",
-  "Filmmaking & editing"
+const front = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript (In progress)",
+  "React (Basics)",
+  "Vue (Basics)",
+  "Astro (Basics)",
+];
+const back = [
+  "Node.js",
+  "Express",
+  "Flask",
+  "REST APIs",
+  "SQL",
+  "NoSQL",
+  "MongoDB",
+  "PostgreSQL",
+  'Python',
+  'Socket.IO',
+  'Redis (Basics)',
+  'Zod'
+];
+
+const devOps = [
+  "Docker",
+  "Git",
+  "GitHub",
+  "CI/CD",
+  "Linux",
+  "Bun",
+  "Render"
 ];
 
 const clients = [
@@ -21,36 +42,36 @@ const clients = [
 ];
 ---
 <Layout>
-  <div id="home">
-    <section class="intro">
-        <h1>Ben Powell</h1>
-        <p>Independent Designer + Filmmaker</p>
-        <p><a href="mailto:projects@bpowell.co">projects@bpowell.co</a></p>
-        <p>Available from September</p>
-      </section>
-  
+  <div id="home">  
       <section id="design" class="projects">
         <h2>Projects</h2>
         <ProjectList items={designProjects.map(p => ({ href: `/design/${p.slug}`, title: p.title }))} />
       </section>
   
       <section id="services" class="services">
-        <h2>Services</h2>
+        <h2>Technologies</h2>
+        <h3>Front End</h3>
         <ul>
-          {services.map(s => <li>{s}</li>)}
+          {front.map(s => <li>{s}</li>)}
         </ul>
-      </section>
-  
-      <section id="clients" class="clients">
-        <h2>Selected clients</h2>
+        <h3>Back End</h3>
         <ul>
-          {clients.map(c => <li>{c}</li>)}
+          {back.map(s => <li>{s}</li>)}
+        </ul>
+        <h3>Dev Ops</h3>
+        <ul>
+          {devOps.map(s => <li>{s}</li>)}
         </ul>
       </section>
   
       <section id="contact" class="contact">
         <h2>Contact</h2>
         <p><a href="mailto:projects@bpowell.co">projects@bpowell.co</a></p>
+        <ul class="social">
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">GitHub</a></li>
+        </ul>        
     </section>    
   </div>
 </Layout>
