@@ -1,15 +1,27 @@
 export const designProjects = [
   {
-    slug: "january",
-    title: "January",
+    slug: "blog", 
+    title: "Blog",
     description: "Description for January design project …",
     images: ["/assets/january-1.jpg", "/assets/january-2.jpg"],
   },
   {
-    slug: "tempest",
-    title: "Tempest",
+    slug: "money-mate",
+    title: "Money Mate",
     description: "Description for Tempest design …",
     images: ["/assets/tempest-1.jpg", "/assets/tempest-2.jpg"],
+  },
+  {
+    slug: "llevoParaguas",
+    title: "Llevo Paraguas?",
+    description: "Description for Travel design …",
+    images: ["/assets/travel-1.jpg", "/assets/travel-2.jpg"],
+  },
+  {
+    slug: "user_auth",
+    title: "User Auth",
+    description: "Description for Travel design …",
+    images: ["/assets/travel-1.jpg", "/assets/travel-2.jpg"],
   },
   // Add more design projects
 ];
